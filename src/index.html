@@ -1,29 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <title>Random excuse generator</title>
   </head>
+
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
+    <h2>Random excuse generator</h2>
+    <button
+      onclick="document.getElementById('excuse').innerHTML = generateExcuse();"
+    >
+      Generar Excusa
+    </button>
+    <p id="excuse"></p>
+
+    <script>
+      function generateExcuse() {
+        var who = ["El perro", "mi padre", "mi gato", "Mi pájaro"];
+        var action = ["se comió", "se cayo", "aplastó", "rompió"];
+        var what = ["mi tarea", "las llaves", "el coche"];
+        var when = [
+          "antes de la clase",
+          "justo a tiempo",
+          "cuando terminé",
+          "durante mi almuerzo",
+          "mientras estaba rezando"
+        ];
+
+        var whoIndex = Math.floor(Math.random() * who.length);
+        var actionIndex = Math.floor(Math.random() * action.length);
+        var whatIndex = Math.floor(Math.random() * what.length);
+        var whenIndex = Math.floor(Math.random() * when.length);
+
+        return (
+          who[whoIndex] +
+          " " +
+          action[actionIndex] +
+          " " +
+          what[whatIndex] +
+          " " +
+          when[whenIndex]
+        );
+      }
+    </script>
   </body>
 </html>
